@@ -103,5 +103,11 @@ int main () {
     // отображаем кадр
     window.display () ;
   }
+
+  // очистка памяти от матрицы расстояний
+  for (int i = 0 ; i < ballsNumber ; i++) {
+    delete [] ttc[i] ;
+  }
+  
   return (0) ;
 }
