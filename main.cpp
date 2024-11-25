@@ -22,7 +22,7 @@ int main () {
 
   // Создание текста для экрана
   sf::Font font;
-  if (!font.loadFromFile("/usr/share/fonts/corefonts/arial.ttf"))
+  if (!font.loadFromFile("/usr/share/fonts/truetype/msttcorefonts/arial.ttf"))
     return EXIT_FAILURE;
   sf::Text text("Hello SFML", font, 10);
 
@@ -56,17 +56,17 @@ int main () {
 
   // матрица расстояний между шарами до коллизии
   // здесь расстояния считаются в целых значениях максимального радиуса
-  int *ttc[MAX_BALLS] ; 
+  int *ttc[MAX_BALLS] ;
   for (int i = 0 ; i < ballsNumber ; i++) {
     ttc[i] = new int[ballsNumber] ;
   }
 
   init_collision_matrix (ttc, balls, ballsNumber) ;
 
-  // задание времени 
+  // задание времени
   sf::Clock clock ;
   float lastTime = clock.restart().asSeconds() ;
-  
+
   while (window.isOpen ()) {
     sf::Event event ;
     while (window.pollEvent (event)) {
@@ -108,6 +108,6 @@ int main () {
   for (int i = 0 ; i < ballsNumber ; i++) {
     delete [] ttc[i] ;
   }
-  
+
   return (0) ;
 }
